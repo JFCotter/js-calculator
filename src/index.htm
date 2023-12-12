@@ -3,7 +3,6 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta charset="UTF-8" />
     <title>Calculatron 9000</title>
     <link rel="stylesheet" href="styles.css" />
     <link
@@ -11,29 +10,34 @@
       href="https://fonts.googleapis.com/css?family=Nunito"
     />
     <link rel="icon" type="image/x-icon" href="/public/favicon.ico" />
+    <script src="/scripts/calculator.js" defer></script>
   </head>
 </html>
 <body>
-  <main class="flexContainer">
-    <input class="display" id="display"></input readonly>
-    <button onclick="appendToDisplay('7')" class="numberButton">7</button>
-    <button onclick="appendToDisplay('8')" class="numberButton">8</button>
-    <button onclick="appendToDisplay('9')" class="numberButton">9</button>
-    <button class="deleteButton">DEL</button>
-    <button onclick="clearDisplay()" class="deleteButton">AC</button>
-    <button onclick="appendToDisplay('4')" class="numberButton">4</button>
-    <button onclick="appendToDisplay('5')" class="numberButton">5</button>
-    <button onclick="appendToDisplay('6')" class="numberButton">6</button>
-    <button onclick="appendToDisplay('&times')" class="operatorButton">&times</button>
-    <button onclick="appendToDisplay('&divide')" class="operatorButton">&divide</button>
-    <button onclick="appendToDisplay('1')" class="numberButton">1</button>
-    <button onclick="appendToDisplay('2')" class="numberButton">2</button>
-    <button onclick="appendToDisplay('3')" class="numberButton">3</button>
-    <button onclick="appendToDisplay('+')" class="operatorButton">+</button>
-    <button onclick="appendToDisplay('-')" class="operatorButton">-</button>
-    <button onclick="appendToDisplay('0')" class="numberButton">0</button>
-    <button onclick="appendToDisplay('.')" class="numberButton">.</button>
-    <button onclick="calculate()" class="answerButton">=</button>
+  <main class="calculatorGrid">
+    <div class="display">
+      <h3 data-previousOperand class="previousOperand">357456</h3>
+      <h1 data-currentOperand class="currentOperand">
+        3598677622378452837287658273641721974974659732465921783649374659273649273653974689734659028734658937462746289074563278495623890475623792980798
+      </h1>
+    </div>
+    <button data-number="7">7</button>
+    <button data-number="8">8</button>
+    <button data-number="9">9</button>
+    <button data-delete class="darkGrayButton">DEL</button>
+    <button data-clear class="darkGrayButton">AC</button>
+    <button data-number="4">4</button>
+    <button data-number="5">5</button>
+    <button data-number="6">6</button>
+    <button data-operator="*" class="orangeButton">&times</button>
+    <button data-operator="/" class="orangeButton">&divide</button>
+    <button data-number="1">1</button>
+    <button data-number="2">2</button>
+    <button data-number="3">3</button>
+    <button data-operator="+" class="orangeButton">+</button>
+    <button data-operator="-" class="orangeButton">-</button>
+    <button data-number="0">0</button>
+    <button data-number=".">.</button>
+    <button data-equals="=" class="answerButton">=</button>
   </main>
-  <script src="/scripts/calculator.js"></script>
 </body>

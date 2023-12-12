@@ -2,20 +2,35 @@
 
 "use strict";
 
-const display = document.getElementById("display");
+//CONSTANTS
+const calculator = {
+  displayValue: "0",
+};
 
-function appendToDisplay(input) {
-  display.value += input;
+const previousOperand = document.querySelector("[data-previousOperand]");
+const currentOperand = document.querySelector("[data-currentOperand]");
+const numberButtons = document.querySelectorAll("[data-number]");
+const operatorButtons = document.querySelectorAll("[data-operator]");
+const deleteButton = document.querySelector("[data-delete]");
+const clearButton = document.querySelector("[data-clear]");
+const equalsButton = document.querySelector("[data-equals]");
+
+// FUNCTIONS
+
+function updateDisplay() {
+  currentOperand.innerText = calculator.displayValue;
 }
 
-function clearDisplay() {
-  display.value = "";
-}
+updateDisplay();
 
-function calculate() {
-  try {
-    display.value = eval(display.value);
-  } catch (error) {
-    display.value = "ERROR";
-  }
-}
+/* Ben started ruining it hereinafter... */
+
+numberButtons.forEach(
+  numberButton => numberButton.addEventListener(
+      "click",
+      () => console.log("Number Button CLicked!")
+    );
+);
+
+function (p1, p2) { return p1; }
+(p1, p2) => p1
