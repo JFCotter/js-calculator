@@ -222,12 +222,12 @@ body {
   word-break: break-all;
 }
 
-.previousOperand {
+.secondaryOperand {
   color: #cccccc;
   font-size: 5rem;
 }
 
-.currentOperand {
+.primaryOperand {
   color: white;
   font-size: 6rem;
 }
