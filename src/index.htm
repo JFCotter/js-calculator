@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculatron 9000</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Nunito"
+    />
+    <link rel="icon" type="image/x-icon" href="/public/favicon.ico" />
+    <script src="/scripts/calculator.js" defer></script>
+  </head>
+</html>
+<body>
+  <main class="calculatorGrid">
+    <div class="display">
+      <h3 data-previous-operand class="previousOperand"></h3>
+      <h1 data-current-operand class="currentOperand"></h1>
+      </h1>
+    </div>
+    <button data-number="7">7</button>
+    <button data-number="8">8</button>
+    <button data-number="9">9</button>
+    <button data-delete class="darkGrayButton">DEL</button>
+    <button data-clear class="darkGrayButton">AC</button>
+    <button data-number="4">4</button>
+    <button data-number="5">5</button>
+    <button data-number="6">6</button>
+    <button data-operator="*" class="orangeButton">&times</button>
+    <button data-operator="/" class="orangeButton">&divide</button>
+    <button data-number="1">1</button>
+    <button data-number="2">2</button>
+    <button data-number="3">3</button>
+    <button data-operator="+" class="orangeButton">+</button>
+    <button data-operator="-" class="orangeButton">-</button>
+    <button data-number="0">0</button>
+    <button data-number=".">.</button>
+    <button data-equals="=" class="answerButton">=</button>
+  </main>
+</body>
