@@ -1,70 +1,59 @@
-// CALCULATOR
-
-"use strict";
-
-//CONSTANTS
-// const calculator = {
-//   displayValue: "0",
-// };
-
-// const previousOperand = document.querySelector("[data-previousOperand]");
-// const currentOperand = document.querySelector("[data-currentOperand]");
-// const numberButtons = document.querySelectorAll("[data-number]");
-// const operatorButtons = document.querySelectorAll("[data-operator]");
-// const deleteButton = document.querySelector("[data-delete]");
-// const clearButton = document.querySelector("[data-clear]");
-// const equalsButton = document.querySelector("[data-equals]");
-
-// FUNCTIONS
-
-// function updateDisplay() {
-//   currentOperand.innerText = calculator.displayValue;
-// }
-
-// updateDisplay();
-
-
-
-
-
-/* Ben started ruining it hereinafter... */
-
-const getValidOperandChar_OrNothing = (operandChar) => 
-  "0123456789.".includes(operandChar) ? operandChar : ""
-;
-
-const primaryOperand = {
-  element   : document.querySelector("[data-primary-operand]"),
-  addDigit  : (newDigit) => primaryOperand.element.innerText += getValidOperandChar_OrNothing(newDigit),
-  clear     : () => primaryOperand.element.innerText = "",
-  get       : () => parseFloat(primaryOperand.element.innerText)
+// CALCULATOR OBJECT
+const calculator = {
+  currentOperand: "0",
+  previousOperand: null,
+  waitingForSecondOperand: false,
+  operator: null,
 };
+// REFRESH DISPLAY
+function updateDisplay() {
+  const bottomDisplay = document.querySelector("[data-current-operand]");
+  bottomDisplay.innerText = calculator.currentOperand;
+  const topDisplay = document.querySelector("[data-previous-operand]")
+  topDisplay.innerText = calculator.previousOperand
+}
 
-const secondryOperand = {
-  element : document.querySelector("[data-secondary-operand]"),
-  addDigit  : (newDigit) => secondryOperand.element.innerText += getValidOperandChar_OrNothing(newDigit),
-  clear     : () => secondryOperand.element.innerText = "",
-  get       : () => parseFloat(secondryOperand.element.innerText)
-};
-
-/* Digits */
+//DETECT WHEN NUMBER BUTTON IS PUSHED
 document.querySelectorAll("[data-number]").forEach(
   (numberButton) => numberButton.addEventListener(
-      "click",
-      () => primaryOperand.addDigit(numberButton.innerText)
-  )
-);
+    "click", () => calculator.currentOperand.addDigit(numberButton.innerText)
+)
+)
 
-/* Operators */
-document.querySelectorAll("[data-number]").forEach(
-  (numberButton) => numberButton.addEventListener(
-      "click",
-      () => primaryOperand.addDigit(numberButton.innerText)
-  )
-);
+//APPEND NUMBER TO CURRENT OPERAND
+function addDigit() {
+  //Maximum of one decimal point
+  if (digit === "." && calculator.currentOperand.includes(".")) return
+  //
+    calculator.currentOperand = currentOperand === '0' ? digit : currentOperand + digit;
+  }
 
 
-/*
-  function (p1, p2) { return p1; }
-  (p1, p2) => p1
-*/
+//DETECT WHEN OPERATOR IS SELECTED
+
+//MOVE CURRENT OPERAND TO PREVIOUS OPERAND, SET "WAITING FOR SECOND OPERAND TO TRUE"
+
+
+//CALCULATE
+function calculate(previousOperand, currentOperand, operator) {
+  if (operator === "+") {
+    return previousOperand + currentOperand;
+  } else if (operator === "-") {
+    return previousOperand - currentOperand;
+  } else if (operator === "&times") {
+    return previousOperand * currentOperand;
+  } else if (operator === "&divide") {
+    return previousOperand / currentOperand;
+  }
+
+  return currentOperand;
+}
+
+//CLEAR CALCULATOR
+function clearCalculator() {
+  calculator.currentOperand = "0";
+  calculator.previousOperand = null;
+  calculator.waitingForSecondOperand = false;
+  calculator.operator = null;
+}
+//DELETE
